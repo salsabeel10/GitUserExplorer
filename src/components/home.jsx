@@ -31,20 +31,22 @@ const RepoList = () => {
 
             <span className="repo-lang-span">Language: {repo.language}</span>
             <div>
-              By: <button className="repo-owner">{repo.owner.login}</button>
+              By:
+              <Link to={`users/user/${repo.owner.login}`}>
+                <button className="repo-owner">{repo.owner.login}</button>
+              </Link>
             </div>
 
-            <button>
+            <Link to={`/repo-detail/${repo.name}/${repo.owner.login}`}>
               <button>View Repo</button>
-            </button>
+            </Link>
           </div>
         ))
       ) : (
         <h1>Loading...</h1>
       )}
-      
     </div>
-  );
+  )
 };
 
 export default RepoList;
